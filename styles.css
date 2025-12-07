@@ -1,0 +1,840 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* 模态框样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 500px;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #61dafb;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    color: #cbd5e0;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #4a5568;
+    border-radius: 8px;
+    background: #1a202c;
+    color: #e2e8f0;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+input[type="password"]:focus {
+    outline: none;
+    border-color: #61dafb;
+    box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.1);
+}
+
+.error {
+    color: #f56565;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: none;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #61dafb;
+    color: #2d3748;
+}
+
+.btn-primary:hover {
+    background: #4fa8d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(97, 218, 251, 0.3);
+}
+
+.btn-success {
+    background: #48bb78;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #38a169;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+}
+
+.btn-secondary {
+    background: #718096;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #4a5568;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(113, 128, 150, 0.3);
+}
+
+.btn-danger {
+    background: #f56565;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #e53e3e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 101, 101, 0.3);
+}
+
+/* 编辑控制面板 */
+.edit-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(45, 55, 72, 0.95);
+    color: #e2e8f0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.panel-content h3 {
+    margin-bottom: 15px;
+    color: #61dafb;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 容器样式 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 40px);
+}
+
+/* 简历主体样式 - 程序员风格 */
+.resume {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 简历头部 */
+.resume-header {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.resume-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNiAyLjY4NiA2IDYgNnptMCAzNmMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNiAyLjY4NiA2IDYgNnptLTEyLTE4YzMuMzE0IDAgNi0yLjY4NiA2LTZzLTIuNjg2LTYtNi02LTYgMi42ODYtNiA2IDIuNjg2IDYgNiA2em0wIDM2YzMuMzE0IDAgNi0yLjY4NiA2LTZzLTIuNjg2LTYtNi02LTYgMi42ODYtNiA2IDIuNjg2IDYgNiA2em0tMTIgMThjMy4zMTQgMCA2LTIuNjg2IDYtNnMtMi42ODYtNi02LTYtNiAyLjY4Ni02IDYgMi42ODYgNiA2IDZ6bTAgMzZjMy4zMTQgMCA2LTIuNjg2IDYtNnMtMi42ODYtNi02LTYtNiAyLjY4Ni02IDYgMi42ODYgNiA2IDZ6IiBzdHJva2U9IiM2MWRhZmIiIHN0cm9rZS13aWR0aD0iMSIvPjwvZz48L3N2Zz4=');
+    opacity: 0.1;
+}
+
+.resume-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #61dafb;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.resume-header .title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #a0aec0;
+    position: relative;
+    z-index: 1;
+}
+
+.resume-header .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.resume-header .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cbd5e0;
+    font-size: 0.95rem;
+}
+
+.resume-header .contact-item i {
+    color: #61dafb;
+}
+
+/* 简历内容区 */
+.resume-content {
+    padding: 40px;
+}
+
+/* 模块样式 */
+.module {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: #f7fafc;
+    border-radius: 12px;
+    border-left: 4px solid #61dafb;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.module:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.module-title {
+    font-size: 1.5rem;
+    color: #2d3748;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.module-title i {
+    color: #61dafb;
+}
+
+.module-actions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.module:hover .module-actions {
+    opacity: 1;
+}
+
+/* 模块类型样式 */
+.module.basic .module-title i {
+    color: #61dafb;
+}
+
+.module.education .module-title i {
+    color: #48bb78;
+}
+
+.module.experience .module-title i {
+    color: #ed8936;
+}
+
+.module.skills .module-title i {
+    color: #9f7aea;
+}
+
+.module.projects .module-title i {
+    color: #f56565;
+}
+
+.module.certifications .module-title i {
+    color: #38b2ac;
+}
+
+/* 基本信息模块 */
+.basic-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    color: #2d3748;
+    font-size: 1rem;
+}
+
+/* 教育经历和工作经历模块 */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #61dafb;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #61dafb;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.timeline-title {
+    font-weight: 700;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.timeline-period {
+    font-weight: 600;
+    color: #718096;
+    font-size: 0.9rem;
+    background: #e2e8f0;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.timeline-company {
+    color: #4a5568;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.timeline-description {
+    color: #718096;
+    line-height: 1.6;
+}
+
+.timeline-description ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.timeline-description li {
+    margin-bottom: 5px;
+}
+
+/* 技能模块 */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.skill-category h4 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-category h4 i {
+    color: #9f7aea;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-item {
+    background: #e6fffa;
+    color: #2d3748;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #b2f5ea;
+}
+
+/* 项目经验模块 */
+.projects-grid {
+    display: grid;
+    gap: 25px;
+}
+
+.project-item {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #f56565;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.project-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.project-technologies {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.project-technologies span {
+    background: #f7fafc;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+.project-description {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.project-achievements {
+    color: #2d3748;
+}
+
+.project-achievements h5 {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.project-achievements ul {
+    padding-left: 20px;
+}
+
+.project-achievements li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* 证书模块 */
+.certifications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.certification-item {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #38b2ac;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.certification-title {
+    font-weight: 700;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.certification-issuer {
+    color: #4a5568;
+    font-weight: 600;
+}
+
+.certification-date {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+/* 添加模块模态框 */
+.module-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.module-type {
+    background: #1a202c;
+    color: #e2e8f0;
+    padding: 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.module-type:hover {
+    background: #2d3748;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: #61dafb;
+}
+
+.module-type i {
+    font-size: 2.5rem;
+    color: #61dafb;
+}
+
+.module-type h4 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.module-type p {
+    margin: 0;
+    color: #a0aec0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* 编辑模式样式 */
+.edit-mode .editable {
+    outline: 2px dashed #61dafb;
+    outline-offset: 2px;
+    background: rgba(97, 218, 251, 0.05);
+    cursor: text;
+}
+
+.edit-mode .editable:hover {
+    background: rgba(97, 218, 251, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .resume {
+        border-radius: 12px;
+    }
+    
+    .resume-header {
+        padding: 30px 20px;
+    }
+    
+    .resume-header h1 {
+        font-size: 2rem;
+    }
+    
+    .resume-header .contact-info {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .resume-content {
+        padding: 20px;
+    }
+    
+    .module {
+        padding: 20px;
+    }
+    
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline::before {
+        left: 5px;
+    }
+    
+    .timeline-item::before {
+        left: -10px;
+    }
+    
+    .edit-panel {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        padding: 15px;
+    }
+    
+    .edit-buttons {
+        flex-direction: column;
+    }
+    
+    .module-types {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certifications-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .module-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .module-actions {
+        opacity: 1;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+/* 加载动画 */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(97, 218, 251, 0.3);
+    border-radius: 50%;
+    border-top-color: #61dafb;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 成功提示 */
+.success-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #48bb78;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -100px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* 编辑入口按钮 */
+.edit-entry {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* 工具提示 */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(45, 55, 72, 0.95);
+    color: #e2e8f0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    margin-bottom: 5px;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
