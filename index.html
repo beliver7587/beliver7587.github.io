@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>个人简历</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 密码验证模态框 -->
+   <div id="passwordModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="passwordModalTitle" aria-describedby="passwordModalDesc">
+    <div class="modal-content">
+        <h2 id="passwordModalTitle"><i class="fas fa-lock" aria-hidden="true"></i> 编辑验证</h2>
+        <p id="passwordModalDesc">请输入密码以启用简历编辑功能：</p>
+        <input type="password" id="passwordInput" placeholder="输入密码" aria-label="密码">
+        <button id="verifyBtn" type="button">验证</button>
+        <p id="errorMsg" class="error" aria-live="polite"></p>
+    </div>
+</div>
+
+    <!-- 编辑入口按钮 -->
+    <div id="editEntry" class="edit-entry">
+        <button id="editBtn" class="btn btn-primary">
+            <i class="fas fa-edit"></i> 编辑简历
+        </button>
+    </div>
+
+    <!-- 编辑控制面板 -->
+    <div id="editPanel" class="edit-panel" style="display: none;">
+        <div class="panel-content">
+            <h3><i class="fas fa-edit"></i> 简历编辑器</h3>
+            <div class="edit-buttons">
+                <button id="addModuleBtn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> 添加模块
+                </button>
+                <button id="saveBtn" class="btn btn-success">
+                    <i class="fas fa-save"></i> 保存简历
+                </button>
+                <button id="toggleEditBtn" class="btn btn-secondary">
+                    <i class="fas fa-eye"></i> 预览模式
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加模块模态框 -->
+    <div id="addModuleModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2><i class="fas fa-cubes"></i> 添加简历模块</h2>
+            <div class="module-types">
+                <div class="module-type" data-type="basic">
+                    <i class="fas fa-user-circle"></i>
+                    <h4>基本信息</h4>
+                    <p>姓名、联系方式等</p>
+                </div>
+                <div class="module-type" data-type="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>教育经历</h4>
+                    <p>学校、专业、时间</p>
+                </div>
+                <div class="module-type" data-type="experience">
+                    <i class="fas fa-briefcase"></i>
+                    <h4>工作经历</h4>
+                    <p>公司、职位、职责</p>
+                </div>
+                <div class="module-type" data-type="skills">
+                    <i class="fas fa-code"></i>
+                    <h4>技能特长</h4>
+                    <p>技术栈、熟练度</p>
+                </div>
+                <div class="module-type" data-type="projects">
+                    <i class="fas fa-project-diagram"></i>
+                    <h4>项目经验</h4>
+                    <p>项目名称、描述、成果</p>
+                </div>
+                <div class="module-type" data-type="certifications">
+                    <i class="fas fa-certificate"></i>
+                    <h4>证书奖项</h4>
+                    <p>证书名称、颁发机构</p>
+                </div>
+            </div>
+            <button id="closeModuleModal" class="btn btn-secondary">关闭</button>
+        </div>
+    </div>
+
+    <!-- 简历主容器 -->
+    <div class="container">
+        <div class="resume" id="resume">
+            <!-- 简历内容将通过JavaScript动态生成 -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
